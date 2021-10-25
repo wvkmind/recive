@@ -1,5 +1,5 @@
 require 'open-uri'
-class PushController < ApplicationController
+class PushesController < ApplicationController
     IMAGES_PATH = File.join(Rails.root, "public")
     def create
         sn = params[:sn]

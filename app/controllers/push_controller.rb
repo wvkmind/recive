@@ -13,6 +13,7 @@ class PushController < ApplicationController
         end
         render_json(json: {code: 0,data: nil})
     rescue => err
+        Rails.logger.error ">>>message:#{err.message} #{JSON.pretty_generate(err.backtrace)}"
         render_json(json: {code: 0,data: nil})
     end
 end

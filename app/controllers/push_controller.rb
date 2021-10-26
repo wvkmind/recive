@@ -11,8 +11,8 @@ class PushController < ApplicationController
             download = open(json_body[:qrcodeimg])
             IO.copy_stream(download, "#{IMAGES_PATH}/image.png")
         end
-        render :json ,{code:0,data:nil}
+        render_json {code:0,data:nil}
     rescue => err
-        render :json ,{code:0,data:nil}
+        render_json {code:0,data:nil}
     end
 end

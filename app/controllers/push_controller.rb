@@ -6,7 +6,7 @@ class PushController < ApplicationController
     def create
         sn = params[:sn]
         password = params[:password]
-        response = RestClient::Request.execute(method: :post , {sn: sn, password: password}, url: 'https://hsk-embed.oray.com/devices/qrcode', headers: {}, timeout: 10)
+        response = RestClient::Request.execute(method: :post, url: 'https://hsk-embed.oray.com/devices/qrcode',payload:{sn: sn, password: password}.to_json, headers: {}, timeout: 10)
         if response.code == 200
             json_body = JSON.parse(response.body)
             download = open(json_body[:qrcodeimg])

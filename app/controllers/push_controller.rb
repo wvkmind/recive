@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'rest-client'
 class PushController < ApplicationController
     skip_before_action :verify_authenticity_token
     IMAGES_PATH = File.join(Rails.root, "public")

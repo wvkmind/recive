@@ -1,6 +1,6 @@
 require 'open-uri'
 class PushController < ApplicationController
-    skip_before_filter :verify_authenticity_token
+    skip_before_action :verify_authenticity_token
     IMAGES_PATH = File.join(Rails.root, "public")
     def create
         sn = params[:sn]
